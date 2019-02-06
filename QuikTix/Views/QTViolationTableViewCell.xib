@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="EncodeSansCondensed-Medium.ttf">
+            <string>EncodeSansCondensed-Medium</string>
+        </array>
+        <array key="EncodeSansCondensed-Regular.ttf">
+            <string>EncodeSansCondensed-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="violation" rowHeight="75" id="KGk-i7-Jjw" customClass="QTViolationTableViewCell" customModule="QuikTix" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of Violation" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CZ-Qo-ZQy">
+                        <rect key="frame" x="10" y="0.0" width="256" height="50.5"/>
+                        <fontDescription key="fontDescription" name="EncodeSansCondensed-Medium" family="Encode Sans Condensed" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12/1212" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="c05-jA-q7q">
+                        <rect key="frame" x="10" y="50.5" width="80" height="15"/>
+                        <fontDescription key="fontDescription" name="EncodeSansCondensed-Regular" family="Encode Sans Condensed" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgd-wg-OE1">
+                        <rect key="frame" x="266" y="0.0" width="39" height="50.5"/>
+                        <fontDescription key="fontDescription" name="EncodeSansCondensed-Medium" family="Encode Sans Condensed" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Dgd-wg-OE1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E3k-R1-Ne7"/>
+                    <constraint firstItem="Dgd-wg-OE1" firstAttribute="leading" secondItem="2CZ-Qo-ZQy" secondAttribute="trailing" id="P78-x8-71B"/>
+                    <constraint firstItem="2CZ-Qo-ZQy" firstAttribute="leading" secondItem="c05-jA-q7q" secondAttribute="trailing" constant="-80" id="Pss-nS-VnH"/>
+                    <constraint firstItem="2CZ-Qo-ZQy" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8" id="WhC-LD-skY"/>
+                    <constraint firstItem="c05-jA-q7q" firstAttribute="leading" secondItem="2CZ-Qo-ZQy" secondAttribute="leading" id="Z0i-Ej-kwX"/>
+                    <constraint firstAttribute="bottom" secondItem="2CZ-Qo-ZQy" secondAttribute="bottom" constant="20" id="fWj-41-y9F"/>
+                    <constraint firstAttribute="bottom" secondItem="c05-jA-q7q" secondAttribute="bottom" constant="5" id="fiE-vr-fRB"/>
+                    <constraint firstItem="2CZ-Qo-ZQy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ipj-lJ-NR8"/>
+                    <constraint firstItem="Dgd-wg-OE1" firstAttribute="centerY" secondItem="2CZ-Qo-ZQy" secondAttribute="centerY" id="jiN-gs-RHM"/>
+                    <constraint firstItem="c05-jA-q7q" firstAttribute="top" secondItem="2CZ-Qo-ZQy" secondAttribute="bottom" id="kJN-Yd-10b"/>
+                    <constraint firstAttribute="trailing" secondItem="Dgd-wg-OE1" secondAttribute="trailing" constant="15" id="mKj-ad-hQH"/>
+                    <constraint firstItem="2CZ-Qo-ZQy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sIo-BL-JPl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amountDueLabel" destination="Dgd-wg-OE1" id="8p2-fA-E7B"/>
+                <outlet property="dateLabel" destination="c05-jA-q7q" id="2Nj-JY-ESe"/>
+                <outlet property="descriptionLabel" destination="2CZ-Qo-ZQy" id="ZxN-y9-R8c"/>
+            </connections>
+            <point key="canvasLocation" x="140.80000000000001" y="133.5832083958021"/>
+        </tableViewCell>
+    </objects>
+</document>

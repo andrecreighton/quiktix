@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>421303932952-fmikpcrdsakf8hat4kp49skclu5pq52e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.421303932952-fmikpcrdsakf8hat4kp49skclu5pq52e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAsfeTT0w-wggoI09a9NSGfkaPBK3PnVRA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>421303932952</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>andrecreighton.QuikTix</string>
+	<key>PROJECT_ID</key>
+	<string>quiktix-2f706</string>
+	<key>STORAGE_BUCKET</key>
+	<string>quiktix-2f706.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:421303932952:ios:4d593887782029b4</string>
+	<key>DATABASE_URL</key>
+	<string>https://quiktix-2f706.firebaseio.com</string>
+</dict>
+</plist>
