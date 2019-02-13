@@ -19,6 +19,8 @@ class QTDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+      
+      // Static number based on the fields I created.
         return 8
     }
   

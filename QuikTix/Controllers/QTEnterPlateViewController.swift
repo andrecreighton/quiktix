@@ -46,15 +46,12 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
           self.dbManager.pushDataToFirebaseUsing(violationArray, completion: { (success) in
             
             if(success){
-              print("Yay")
-              
               
               DispatchQueue.main.async {
                 self.whenTapRecognized()
                 self.goToVC()
               }
          
-              
             }else{
               print("boo")
             }
@@ -64,7 +61,9 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
 
         }else{
           // Alert no data found
-          
+          DispatchQueue.main.async {
+             self.alertUserOfNoRecord()
+          }
           print("no data found")
         }
 
@@ -85,12 +84,22 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
     
   }
   
+  func alertUserOfNoRecord(){
+    
+    let alertVC = UIAlertController(title: "!!!", message: "License plate \(licensePlateTextField.text!) has no record of violations.", preferredStyle: .alert)
+    let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+      self.licensePlateTextField.becomeFirstResponder()
+    }
+  
+    alertVC.addAction(alertAction)
+    self.present(alertVC, animated: true, completion: nil)
+    
+  }
+  
   func updateTheUI(){
   
     tapGestureRecognizer.addTarget(self, action: #selector(whenTapRecognized))
-    
     licensePlateTextField.delegate = self
-    
     searchActivityIndicator.isHidden = true
     searchActivityIndicator.stopAnimating()
     
@@ -103,6 +112,7 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
       updateTheUI()
+      
       
     }
   

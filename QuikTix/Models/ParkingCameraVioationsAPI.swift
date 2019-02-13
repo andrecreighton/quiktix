@@ -32,7 +32,7 @@ class ParkingCameraViolationsClient : NSObject {
     let dataTask = session.dataTask(with: urlRequest) { (data, response, err) in
       
       if let error = err {
-        print(error.localizedDescription)
+        print("ERROR: \(error.localizedDescription)")
       }else{
         
         guard let dataRequest = data else{
@@ -44,7 +44,6 @@ class ParkingCameraViolationsClient : NSObject {
           
           let arrayOfViolationDictionariesWithAllData = try JSONSerialization.jsonObject(with: dataRequest, options: .mutableContainers) as! [[String:Any]]
           
-          
           for violationDictionary in arrayOfViolationDictionariesWithAllData {
             
             print("violationDictionary: \(violationDictionary["plate"])")
@@ -55,7 +54,6 @@ class ParkingCameraViolationsClient : NSObject {
             
             arrayOfViolations.append(violationAfterParse)
             
-           
           }
           
           completion(arrayOfViolations)
