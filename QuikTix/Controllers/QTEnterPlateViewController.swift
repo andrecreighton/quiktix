@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Network
 
 class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
   
@@ -16,6 +17,7 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var enterLicensePlatePromptLabel: UILabel!
   @IBOutlet weak var licensePlateTextField: UITextField!
   @IBOutlet weak var searchButton: UIButton!
+  @IBOutlet weak var apiButton: UIButton!
   @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
   @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
   
@@ -23,6 +25,7 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
   let appStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
   let apiClient = ParkingCameraViolationsClient()
   let dbManager = DatabaseManager()
+  let monitor = NWPathMonitor()
 
   // MARK: - Actions
   
@@ -86,13 +89,41 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
   
   func alertUserOfNoRecord(){
     
-    let alertVC = UIAlertController(title: "!!!", message: "License plate \(licensePlateTextField.text!) has no record of violations.", preferredStyle: .alert)
+    let alertVC = UIAlertController(title: "!!!", message: "License plate \(licensePlateTextField.text!.uppercased()) has no record of violations.", preferredStyle: .alert)
     let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+      self.licensePlateTextField.text = ""
       self.licensePlateTextField.becomeFirstResponder()
+   
     }
   
     alertVC.addAction(alertAction)
     self.present(alertVC, animated: true, completion: nil)
+    
+  }
+  
+  func alertUserNoConnection(){
+    
+    
+    let alertVC = UIAlertController(title: "!!!", message: "You are not connected", preferredStyle: .alert)
+    let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+      
+      self.licensePlateTextField.isUserInteractionEnabled = false
+      self.searchButton.isUserInteractionEnabled = false
+      self.apiButton.isUserInteractionEnabled = false
+      
+    }
+    
+    alertVC.addAction(alertAction)
+    self.present(alertVC, animated: true, completion: nil)
+    
+    
+    
+  }
+  
+  @objc func respondToBeingActive(){
+    
+    print("ACTIVE")
+    
     
   }
   
@@ -107,13 +138,48 @@ class QTEnterPlateViewController: UIViewController, UITextFieldDelegate {
     
     
   }
+  
+  func notificationsStack(){
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(respondToBeingActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+    
+    
+  }
+  
+  func networkSetup(){
+    
+    monitor.pathUpdateHandler = { path in
+      if path.status == .satisfied{
+        print("Connected")
+        DispatchQueue.main.async {
+          self.licensePlateTextField.isUserInteractionEnabled = true
+          self.searchButton.isUserInteractionEnabled = true
+          self.apiButton.isUserInteractionEnabled = true
+        }
+        
+      }else if path.status == .unsatisfied {
+        print("Not connected")
+        DispatchQueue.main.async {
+        self.alertUserNoConnection()
+        }
+        
+      }
+    
+      print(path.isExpensive)
+    }
+    
+  
+    
+  }
   // MARK: - VIEWDIDLOAD
   
     override func viewDidLoad() {
         super.viewDidLoad()
       updateTheUI()
-      
-      
+      notificationsStack()
+      networkSetup()
+      let queue = DispatchQueue(label: "monitor")
+      monitor.start(queue: queue)
     }
   
   override func viewDidAppear(_ animated: Bool) {

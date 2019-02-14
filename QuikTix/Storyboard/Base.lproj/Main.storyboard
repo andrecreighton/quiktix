@@ -51,10 +51,10 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0pY-th-TBb">
-                                <rect key="frame" x="177.66666666666666" y="371" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="372" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtE-Pp-8YC">
-                                <rect key="frame" x="16" y="315" width="343" height="31"/>
+                                <rect key="frame" x="16" y="315" width="343" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="EncodeSansCondensed-Medium" family="Encode Sans Condensed" pointSize="16"/>
                                 <state key="normal" title="SEARCH">
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tn-il-2hP">
-                                <rect key="frame" x="229.66666666666666" y="642" width="126.66666666666666" height="28"/>
+                                <rect key="frame" x="229.66666666666666" y="641" width="126.66666666666666" height="29"/>
                                 <fontDescription key="fontDescription" name="EncodeSansCondensed-Regular" family="Encode Sans Condensed" pointSize="13"/>
                                 <state key="normal" title="API Reference">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,6 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="onn-Mj-Opt"/>
                     <connections>
+                        <outlet property="apiButton" destination="8Tn-il-2hP" id="pZm-K6-ai2"/>
                         <outlet property="enterLicensePlatePromptLabel" destination="3Ym-A0-3bo" id="4q7-lE-T7l"/>
                         <outlet property="licensePlateTextField" destination="QYg-5S-DHM" id="x73-mU-AD9"/>
                         <outlet property="searchActivityIndicator" destination="0pY-th-TBb" id="Esa-Jd-JiY"/>
@@ -180,7 +181,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BNX-sX-rVW">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BNX-sX-rVW">
                             <rect key="frame" x="148.66666666666666" y="3.6666666666666679" width="78" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="EncodeSansCondensed-SemiBold" family="Encode Sans Condensed" pointSize="20"/>

@@ -20,6 +20,7 @@ class ParkingCameraViolationsClient : NSObject {
     
     guard let url = URL(string: urlString) else{
       print("Cannot be converted")
+      completion(arrayOfViolations)
       return
     }
     
